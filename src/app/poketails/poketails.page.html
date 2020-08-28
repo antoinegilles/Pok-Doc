@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="black">
+
+  <ion-grid>
+    <ion-col col-6>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>{{infosPokemon['name']}}</ion-card-title>
+          <ion-slides pager="true">
+            <ion-slide>
+              <ion-img [src]="image3"></ion-img>
+            </ion-slide>
+            <ion-slide>
+              <ion-img [src]="image2"></ion-img>
+            </ion-slide>
+            <ion-slide>
+              <ion-img [src]="image1"></ion-img>
+            </ion-slide>
+          </ion-slides>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-grid>
+            <ion-row align-items-center>
+              <b>Aptitudes: </b>
+              <div style="padding-left:1em;" col-2
+                *ngFor="let aptitude of infosPokemon['abilities'] ; let index = index;">
+                {{aptitude.ability.name}}{{index === infosPokemon['abilities'].length - 1 ? '' : ', '}}
+              </div>
+            </ion-row>
+            <ion-row>
+              <div>
+                <b>Niveau d'Experience :</b> {{infosPokemon['base_experience']}}
+              </div>
+            </ion-row>
+            <!-- <b>Attaques : </b>
+                <div *ngFor="let move of moves">
+                  <div>{{move['move']['name']}}</div>
+                  <br/>
+                </div> -->
+            <ion-row class="ion-align-self-center">
+              <ion-label style="margin-top: 0.8em;"><b>Attaques : </b></ion-label>
+              <ion-select [(ngModel)]="attaqueSelected" placeholder="Listes des Attaques">
+                <ion-select-option *ngFor="let move of moves" value="{{move['move']['url']}}">{{move['move']['name']}}</ion-select-option>
+              </ion-select>
+              <ion-button (click)="searchAttack()" size="small" shape="round">Details</ion-button>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-grid>
+
+</ion-content>

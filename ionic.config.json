@@ -1,0 +1,7 @@
+{
+  "name": "pokapi",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

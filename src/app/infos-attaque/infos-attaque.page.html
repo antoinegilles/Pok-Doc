@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar color="danger">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title >Nom de l'attaque : <b><i>{{nomAttaque}}</i></b></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" col-12 col-sm-4>
+        <ion-card>
+          <ion-item>
+            <ion-icon name="flash-outline" color="danger"></ion-icon>
+            <ion-card-title color="danger">Effets de l'attaque</ion-card-title>
+          </ion-item>
+
+          <ion-card-content>
+            <ion-list *ngFor="let effet of effets" >
+              <span>{{effet['effect']}}</span>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col col-12 col-sm-4>
+        <ion-card>
+          <ion-item>
+            <ion-icon color="success" name="analytics-outline"></ion-icon>
+            <ion-card-title color="success">Versions de jeu</ion-card-title>
+          </ion-item>
+
+          <ion-card-content>
+            <ion-list *ngFor="let version of versions">
+              {{version}}
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col col-12 col-sm-4>
+        <ion-card>
+          <ion-item>
+            <ion-icon color="warning" name="finger-print-outline"></ion-icon>
+            <ion-card-title color="warning">Type d'attaque</ion-card-title>
+          </ion-item>
+
+          <ion-card-content>
+            {{typeAttaque}}
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
